@@ -19,13 +19,13 @@
     </p>
   </ion-card-content>
 </ion-card>
-<div [hidden]="dish || dishErrMess">
+<div [hidden]="dish || dishErrMsg">
   <ion-spinner></ion-spinner>
   <h4>Loading . . . Please Wait</h4>
 </div>
-<div *ngIf="dishErrMess">
+<div *ngIf="dishErrMsg">
   <h2>Error</h2>
-  <h4>{{dishErrMess}}</h4>
+  <h4>{{dishErrMsg}}</h4>
 </div>
 
 <ion-card *ngIf="promotion">
@@ -39,13 +39,13 @@
     </p>
   </ion-card-content>
 </ion-card>
-<div [hidden]="promotion || promoErrMess">
+<div [hidden]="promotion || promotionErrMsg">
   <ion-spinner></ion-spinner>
   <h4>Loading . . . Please Wait</h4>
 </div>
-<div *ngIf="promoErrMess">
+<div *ngIf="promotionErrMsg">
   <h2>Error</h2>
-  <h4>{{promoErrMess}}</h4>
+  <h4>{{promotionErrMsg}}</h4>
 </div>
 
 <ion-card *ngIf="leader">
@@ -62,12 +62,12 @@
     </p>
   </ion-card-content>
 </ion-card>
-<div [hidden]="leader || leaderErrMess">
+<div [hidden]="leader || leaderErrMsg">
   <ion-spinner></ion-spinner>
   <h4>Loading . . . Please Wait</h4>
 </div>
-<div *ngIf="leaderErrMess">
+<div *ngIf="leaderErrMsg">
   <h2>Error</h2>
-  <h4>{{leaderErrMess}}</h4>
+  <h4>{{leaderErrMsg}}</h4>
 </div>
 </ion-content>
