@@ -33,7 +33,7 @@ export class MenuPage implements OnInit {
     this.dishservice.getDishes()
       .subscribe(
         dishes => this.dishes = dishes,
-        err => this.errMsg = err
+        err => this.errMsg = <any>err
       );
   }
 

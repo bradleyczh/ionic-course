@@ -1,21 +1,42 @@
-<!--
-  Generated template for the ContactPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Contact Us</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <ion-card>
+    <ion-card-header color="primary">
+      Location Information
+    </ion-card-header>
 
+    <ion-card-content>
+      <div><em>121, Clear Water Bay Road</em></div>
+      <div><em>Clear Water Bay, Kowloon</em></div>
+      <div><em>HONG KONG</em></div>
+      <div><ion-icon name="call"></ion-icon><em>: +852 1234 5678</em></div>
+      <div><ion-icon name="md-print"></ion-icon><em>: +852 8765 4321</em></div>
+      <div><ion-icon name="mail"></ion-icon><em>: confusion@food.net</em></div>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="call"></ion-icon>
+          <div> CALL</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="mail"></ion-icon>
+            <div> EMAIL </div>
+        </button>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
 </ion-content>
