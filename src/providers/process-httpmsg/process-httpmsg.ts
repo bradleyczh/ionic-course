@@ -27,11 +27,11 @@ export class ProcessHttpmsgProvider {
 
     if(error.error instanceof Error) {
       // Client-side or network error occurred.
-      errMsg = `${error.status} - ${error.statusText || ''} ${error.error.message}`;
+      errMsg = `${error.status} - ${error.statusText || ''} ${error.message}`;
     }
     else {
       // The backend returned an unsuccessful response code.
-      errMsg = `Backend returned error code ${error.status}, body was: ${error.error}`;
+      errMsg = `Backend returned error code ${error.status}, message: ${error.message}`;
     }
     console.log(errMsg)
     return Observable.throw(errMsg);
