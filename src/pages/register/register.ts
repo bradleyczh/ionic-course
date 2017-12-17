@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
-import { Camera, CameraOptions} from '@ionic-native/camera';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 /**
  * Generated class for the RegisterPage page.
@@ -57,10 +57,22 @@ export class RegisterPage {
       mediaType: this.camera.MediaType.PICTURE,
       cameraDirection: this.camera.Direction.FRONT
     };
-
     this.camera.getPicture(options)
       .then(imageData => {
         this.image = imageData; //in a real app, imageData will be sent to server-side
+      }, err => console.log('Error obtaining picture'))
+  }
+
+  getFromLibrary() {
+    const options: CameraOptions = {
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      mediaType: this.camera.MediaType.PICTURE,
+      targetHeight: 100,
+      targetWidth: 100,
+    };
+    this.camera.getPicture(options)
+      .then(imageData => {
+        this.image = imageData;
       }, err => console.log('Error obtaining picture'))
   }
 
