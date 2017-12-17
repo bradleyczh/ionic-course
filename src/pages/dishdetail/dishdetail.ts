@@ -1,9 +1,11 @@
 import { Component, Inject } from '@angular/core';
 import { IonicPage, NavController, NavParams,
   ToastController, ActionSheetController, ModalController } from 'ionic-angular';
+import { SocialSharing } from '@ionic-native/social-sharing';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+
 import { Dish } from '../../shared/dish';
 import { Comment } from '../../shared/comment';
-
 import { FavoriteProvider } from '../../providers/favorite/favorite';
 import { CommentPage } from '../comment/comment';
 
@@ -34,6 +36,8 @@ export class DishdetailPage {
     private toastCtrl: ToastController,
     private actionsheetCtrl: ActionSheetController,
     public modalCtrl: ModalController,
+    private socialSharing: SocialSharing,
+    private localNotifications: LocalNotifications,
     @Inject('BaseURL') private BaseURL,
   ) {
       this.dish = navParams.get('dish');
@@ -87,6 +91,32 @@ export class DishdetailPage {
         {
           text: 'Add Comment',
           handler: () => this.openComment()
+        },
+        {
+          text: 'Share via Facebook',
+          handler: () => {
+            this.socialSharing.shareViaFacebook(
+              this.dish.name + ' -- ' + this.dish.description,
+              this.BaseURL + this.dish.image,
+              '', )
+            .then(() =>
+              this.localNotifications.schedule({text: 'Shared dish to Facebook successfully!'}))
+            .catch(() =>
+              console.log('Failed to post to Facebook!'))
+          }
+        },
+        {
+          text: 'Share via Twitter',
+          handler: () => {
+            this.socialSharing.shareViaTwitter(
+              this.dish.name + ' -- ' + this.dish.description,
+              this.BaseURL + this.dish.image,
+              '', )
+            .then(() =>
+              this.localNotifications.schedule({text: 'Tweeted new dish successfully!'}))
+            .catch(() =>
+              console.log('Failed to post to Facebook!'))
+          }
         },
         {
           text: 'Cancel',
