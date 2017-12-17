@@ -67,5 +67,5 @@ export class LoginPage {
     }
     this.viewCtrl.dismiss();
   }
-  
+
 }
